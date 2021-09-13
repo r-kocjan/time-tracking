@@ -113,3 +113,51 @@ a:hover {
   font-weight: lighter;
   margin-bottom: 2rem;
 }
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+  body {
+    display: block;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    width: 85%;
+    margin: 5rem auto;
+  }
+  .user {
+    width: 100%;
+  }
+  .top {
+    display: flex;
+    padding: 4rem 2.5rem 4rem 2.5rem;
+    align-items: center;
+  }
+  h1 {
+    margin-top: 0;
+    font-size: 3rem;
+    width: 100%;
+  }
+  .user-img {
+    width: 60px;
+    margin: 0;
+  }
+  .report {
+    margin-left: 2rem;
+  }
+  .time {
+    display: flex;
+    justify-content: space-around;
+  }
+  .li-item:not(:last-child) {
+    margin-bottom: 0;
+  }
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .total-time {
+    margin-bottom: 0;
+  }
+}

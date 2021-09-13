@@ -10,8 +10,6 @@ function App() {
     setSelectedTime(time);
   };
 
-  const options = document.querySelectorAll(".li-item");
-
   useEffect(() => {
     setData(info);
     const options = document.querySelectorAll(".li-item");
@@ -37,8 +35,10 @@ function App() {
               alt="user"
               className="user-img"
             />
-            <span>Report for</span>
-            <h1>Jeremy Robson</h1>
+            <div className="report">
+              <span>Report for</span>
+              <h1>Jeremy Robson</h1>
+            </div>
           </div>
           <div className="bottom">
             <ul className="time">
@@ -54,7 +54,7 @@ function App() {
             </ul>
           </div>
         </div>
-        {data.map((element) => {
+        {data.map((element, id) => {
           const { title, timeframes } = element;
           const { daily, weekly, monthly } = timeframes;
           let selected;
@@ -66,7 +66,7 @@ function App() {
             selected = monthly;
           }
           return (
-            <div className={`work ${title}`}>
+            <div key={id} className={`work ${title}`}>
               <img
                 src={`/images/icon-${title}.svg`}
                 alt="work"
@@ -81,10 +81,12 @@ function App() {
                     className="dots"
                   />
                 </div>
-                <h2 className="total-time">{`${selected.current}hrs`}</h2>
-                <span className="last-week">
-                  {`Last Week - ${selected.previous}`}hrs
-                </span>
+                <div className="flex">
+                  <h2 className="total-time">{`${selected.current}hrs`}</h2>
+                  <span className="last-week">
+                    {`Last Week - ${selected.previous}`}hrs
+                  </span>
+                </div>
               </div>
             </div>
           );
